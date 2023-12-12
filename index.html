@@ -23,6 +23,7 @@
                     <li class="task" v-for="(task, i) in todos" :key="i">
                         <span v-if="task.done" class="completed">{{ task.text }}</span>
                         <span v-else>{{ task.text }}</span>
+                        <i class="fa-solid fa-xmark fa-lg" @click="delTask(i)" style="color: #585858;"></i>
                     </li>
                 </ul>
             </div>
