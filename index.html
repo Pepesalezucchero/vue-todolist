@@ -15,7 +15,9 @@
         <div id="app">
 
             <div class="tasks-container">
+                <!-- qui creo la lista -->
                 <ul>
+                    <!-- contenuti della lista, l'aggiunta della classe determina se una cosa della lista sarà barrata o meno -->
                     <li class="task" v-for="(task, i) in todos" :key="i">
                         <span v-if="task.done" class="completed">{{ task.text }}</span>
                         <span v-else>{{ task.text }}</span>

@@ -15,11 +15,15 @@ Predisporre un campo di input testuale e un pulsante “aggiungi”: cliccando s
 che quindi viene aggiunto alla lista dei todo esistenti.
 */
 
+
+//creo i dati di lavoro
 const { createApp } = Vue;
 
 createApp({
     data() {
         return {
+
+            //creo i miei array di oggetti
             todos: [
                 {
                 text: 'Fare i compiti',

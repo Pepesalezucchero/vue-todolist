@@ -1,9 +1,11 @@
+/*stili base*/
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+/*classe che permette di barrare le parole*/
 .completed {
     text-decoration: line-through;
 }
