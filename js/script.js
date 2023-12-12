@@ -23,15 +23,15 @@ createApp({
             //creo i miei array di oggetti
             todos: [
                 {
-                text: 'Fare i compiti',
+                text: 'fare i compiti',
                 done: false
                 },
                 {
-                text: 'Fare la spesa',
+                text: 'fare la spesa',
                 done: true
                 },
                 {
-                text: 'Fare il bucato',
+                text: 'fare il bucato',
                 done: false
                 }
             ],
@@ -47,8 +47,8 @@ createApp({
             if(this.message.length < 5) {
                 this.error = true;
             } else {
-                this.todos.text.unshift(this.message);
-                this.todos.done.unshift(true);
+                this.todos.unshift({text: this.message, done:false});
+                this.message = "";
             }
         }
     },
