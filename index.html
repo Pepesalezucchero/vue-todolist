@@ -8,16 +8,27 @@
         <link rel="stylesheet" href="css/style.css" />
     </head>
     <body>
+
+        <!--Vue.js-->
+        <script src='https://unpkg.com/vue@3/dist/vue.global.js'></script>
     
         <div id="app">
-            
+
+            <div class="tasks-container">
+                <ul>
+                    <li class="task" v-for="(task, i) in todos" :key="i">
+                        <span v-if="task.done" class="completed">{{ task.text }}</span>
+                        <span v-else>{{ task.text }}</span>
+                    </li>
+                </ul>
+            </div>
+
         </div>
 
 
-    <!--Vue.js-->
-    <script src='https://unpkg.com/vue@3/dist/vue.global.js'></script>
-    <!--my javascript-->
-    <script src="./js/script.js"></script>
+    
+        <!--my javascript-->
+        <script src="js/script.js"></script>
 
     </body>
 </html>
