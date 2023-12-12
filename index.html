@@ -18,12 +18,14 @@
 
             <div class="tasks-container">
 
+                <!--zona con input e bottone per l'aggiunta di nuove task-->
                 <div class="new-task">
                     <input type="text" placeholder="Nuova task" v-model="message">
                     <button @click="addTask">Aggiungi alla lista</button>
 
+                    <!-- messaggio di errore in caso non si rispetti un limite minimo di 5 caratteri -->
                     <div class="error" v-if="error">
-                        <small style="color: red;">Inserisci una tasak di almeno 5 caratteri!</small>
+                        <small style="color: red;">Inserisci una task di almeno 5 caratteri!</small>
                     </div>
                 </div>
                 <!-- qui creo la lista -->

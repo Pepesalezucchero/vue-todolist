@@ -40,15 +40,18 @@ createApp({
         }
     },
     methods: {
+        //imposto la funzione che mi permette di cancellare un elemento della lista
         delTask(i) {
             this.todos.splice(i, 1);
         },
+        //imposto la funzione che mi permette di aggiungere elementi alla lista attraverso il bottone di aggiunta e l'input
         addTask() {
             if(this.message.length < 5) {
                 this.error = true;
             } else {
                 this.todos.unshift({text: this.message, done:false});
                 this.message = "";
+                this.error = false;
             }
         }
     },
