@@ -34,12 +34,22 @@ createApp({
                 text: 'Fare il bucato',
                 done: false
                 }
-            ], 
+            ],
+            message: "",
+            error: false,
         }
     },
     methods: {
         delTask(i) {
             this.todos.splice(i, 1);
+        },
+        addTask() {
+            if(this.message.length < 5) {
+                this.error = true;
+            } else {
+                this.todos.text.unshift(this.message);
+                this.todos.done.unshift(true);
+            }
         }
     },
 

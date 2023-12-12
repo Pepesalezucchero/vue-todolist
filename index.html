@@ -17,6 +17,15 @@
         <div id="app">
 
             <div class="tasks-container">
+
+                <div class="new-task">
+                    <input type="text" placeholder="Nuova task" v-model="message">
+                    <button @click="addTask">Aggiungi alla lista</button>
+
+                    <div class="error" v-if="error">
+                        <small style="color: red;">Inserisci una tasak di almeno 5 caratteri!</small>
+                    </div>
+                </div>
                 <!-- qui creo la lista -->
                 <ul>
                     <!-- contenuti della lista, l'aggiunta della classe determina se una cosa della lista sarà barrata o meno -->
