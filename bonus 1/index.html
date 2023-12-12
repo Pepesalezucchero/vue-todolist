@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Vue todolist</title>
+        <!--my css-->
+        <link rel="stylesheet" href="css/style.css" />
+        <!--font awesome-->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    </head>
+    <body>
+
+        <!--Vue.js-->
+        <script src='https://unpkg.com/vue@3/dist/vue.global.js'></script>
+    
+        <div id="app">
+
+            <div class="tasks-container">
+
+                <!--zona con input e bottone per l'aggiunta di nuove task-->
+                <div class="new-task">
+                    <input type="text" placeholder="Nuova task" v-model="message" @keyup.enter="addTask">
+                    <button @click="addTask">Aggiungi alla lista</button>
+
+                    <!-- messaggio di errore in caso non si rispetti un limite minimo di 5 caratteri -->
+                    <div class="error" v-if="error">
+                        <small style="color: red;">Inserisci una task di almeno 5 caratteri!</small>
+                    </div>
+                </div>
+                <!-- qui creo la lista -->
+                <ul>
+                    <!-- contenuti della lista, l'aggiunta della classe determina se una cosa della lista sarà barrata o meno -->
+                    <li class="task" v-for="(task, i) in todos" :key="i">
+                        <span v-if="task.done" class="completed">{{ task.text }}</span>
+                        <span v-else>{{ task.text }}</span>
+                        <i class="fa-solid fa-xmark fa-lg" @click="delTask(i)" style="color: #585858;"></i>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+
+
+    
+        <!--my javascript-->
+        <script src="js/script.js"></script>
+
+    </body>
+</html>
