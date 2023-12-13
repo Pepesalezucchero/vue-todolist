@@ -4,46 +4,95 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Vue todolist</title>
-        <!--my css-->
+        <!-- my css -->
         <link rel="stylesheet" href="css/style.css" />
-        <!--font awesome-->
+        <!-- google fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@300;400;700&display=swap" rel="stylesheet">
+        <!-- font awesome -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     </head>
     <body>
 
-        <!--Vue.js-->
+        <!-- Vue.js -->
         <script src='https://unpkg.com/vue@3/dist/vue.global.js'></script>
     
         <div id="app">
 
-            <div class="tasks-container">
+            <!-- inizio pagina -->
+            <header>
+                <nav>
+                    <div class="navbar-container">
 
-                <!--zona con input e bottone per l'aggiunta di nuove task-->
-                <div class="new-task">
-                    <input type="text" placeholder="Nuova task" v-model="message">
-                    <button @click="addTask">Aggiungi alla lista</button>
+                        <div class="logo">
+                            <a href="#"><img src="img/lazy-team.png" alt="logo pagina"></a>
+                        </div>
+                        <h4>L'unico sito, per veri pigroni</h4>
 
-                    <!-- messaggio di errore in caso non si rispetti un limite minimo di 5 caratteri -->
-                    <div class="error" v-if="error">
-                        <small style="color: red;">Inserisci una task di almeno 5 caratteri!</small>
+                    </div>
+                </nav>
+            </header>
+
+            <main>
+                <section>
+                    <div class="tasks-container">
+
+                        <h1>Aggiungi qui pigrone una task da fare... oggi?</h1>
+                        <!-- zona con input e bottone per l'aggiunta di nuove task -->
+                        <div class="new-task">
+                            <input type="text" placeholder="Nuova task" v-model="message">
+                            <button @click="addTask">Aggiungi alla lista</button>
+
+                            <!-- messaggio di errore in caso non si rispetti un limite minimo di 5 caratteri -->
+                            <div class="error" v-if="error">
+                                <small style="color: red;">Troppo pigro anche per scrivere eh? Inserisci una task di almeno 5 caratteri!</small>
+                            </div>
+                        </div>
+                        <!-- qui creo la lista -->
+                        <ul>
+                            <!-- contenuti della lista, l'aggiunta della classe determina se una cosa della lista sarà barrata o meno -->
+                            <li class="task" v-for="(task, i) in todos" :key="i">
+                                <span v-if="task.done" class="completed">{{ task.text }}</span>
+                                <span v-else>{{ task.text }}</span>
+                                <i class="fa-solid fa-xmark fa-lg" @click="delTask(i)" style="color: #585858;"></i>
+                            </li>
+                        </ul>
+                    </div>
+                </section>
+            </main>
+
+            <footer>
+
+                <div class="footer-container">
+                    <h2>Ormai famosi in tutto il mondo, cosa dicono di noi:</h2>
+                    <div>
+                        <h3>"Qualcuno mi ha dato del pigro oggi"</h3>
+                        <p>Gli ho quasi risposto...</p>
+                    </div>
+                    <div>
+                        <h3>"Fatto numero #4564321564 delle persone pigre"</h3>
+                        <p>Sono troppo pigre per leggere quel numero</p>
+                    </div>
+                    <div>
+                        <h3>"Non c'è bisogno di arrabbiarsi con le persone pigre"</h3>
+                        <p>In fondo, non fanno proprio nulla di male...</p>
+                    </div>
+
+                    <div class="trophy">
+                        <img src="img/tropy-image.png" alt="immagine persona che si riposa">
+                        <i class="fa-solid fa-trophy fa-2xl" style="color: #ebf101;"></i>
+                        <span>96/100 Miglior sito per pigroni riconosciuto in tutta italia</span>
                     </div>
                 </div>
-                <!-- qui creo la lista -->
-                <ul>
-                    <!-- contenuti della lista, l'aggiunta della classe determina se una cosa della lista sarà barrata o meno -->
-                    <li class="task" v-for="(task, i) in todos" :key="i">
-                        <span v-if="task.done" class="completed">{{ task.text }}</span>
-                        <span v-else>{{ task.text }}</span>
-                        <i class="fa-solid fa-xmark fa-lg" @click="delTask(i)" style="color: #585858;"></i>
-                    </li>
-                </ul>
-            </div>
 
+            </footer>
+                
         </div>
 
 
     
-        <!--my javascript-->
+        <!-- my javascript -->
         <script src="js/script.js"></script>
 
     </body>
