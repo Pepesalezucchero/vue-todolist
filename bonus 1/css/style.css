@@ -45,6 +45,11 @@
 .tasks-container h1 {
     color: #2c2b31;
     margin-bottom: 20px;
+    font-size: 40px;
+}
+
+.tasks-container i:hover {
+    cursor: pointer;
 }
 
 .new-task {
