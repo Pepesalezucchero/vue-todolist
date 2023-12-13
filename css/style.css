@@ -44,8 +44,13 @@
 
 .tasks-container h1 {
     color: #2c2b31;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
     font-size: 40px;
+}
+
+.tasks-container h2 {
+    color: #2c2b31;
+    margin-bottom: 20px;
 }
 
 .tasks-container i:hover {
@@ -130,6 +135,7 @@ h2, h3 {
 
 .footer-container p {
     text-align: center;
+    margin: 5px 0;
     color: rgb(142, 142, 142);
 }
 
